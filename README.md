@@ -13,10 +13,10 @@ During my consulting internship (consumer & industrial clients), I worked on dea
 | **Dealer scoring engine** | Multi-criteria partner selection — financial health, infra, OTD, track record, responsiveness → weighted 0–1 score + ranking | ✅ |
 | **Coverage model** | Regional demand vs network footprint; saturation status per region | ✅ |
 | **Capacity planner** | Greedy market-entry selection: pick top-scoring partners per region until demand × buffer is covered | ✅ |
-| **Response-time simulator** | Service-level modeling — how network shape drives fulfillment/response SLAs | ⏳ |
-| **Scenario board** | Entry strategies compared: depth-first vs breadth-first expansion | ⏳ |
+| **Response-time simulator** | Monte Carlo SLA modeling — scored selection lifts 24h service level from 81% to 90% | ✅ |
+| **Scenario board** | Capacity-buffer vs partner-count vs service-level trade-off analysis | ✅ |
 
-Run it: `pip install -r requirements.txt && python demo_network_plan.py` (writes shortlist CSV + coverage chart to `outputs/`).
+Run it: `pip install -r requirements.txt` then `python demo_network_plan.py` and `python demo_scenarios.py`.
 
 ## Tech
 
@@ -32,8 +32,8 @@ Run it: `pip install -r requirements.txt && python demo_network_plan.py` (writes
 - [x] Full-network saturation analysis
 - [x] Greedy market-entry network plan (125% capacity buffer)
 - [ ] Geospatial coverage maps
-- [ ] Response-time simulation notebook
-- [ ] Scenario comparison + final writeup
+- [x] Response-time simulation (Monte Carlo SLA)
+- [x] Scenario analysis: capacity buffer vs service-level trade-off
 
 ---
 
