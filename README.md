@@ -6,28 +6,32 @@ An open-source toolkit for **designing and stress-testing distribution networks*
 
 During my consulting internship (consumer & industrial clients), I worked on dealer-selection frameworks and distribution network analysis for an international brand's India entry — including processing 1,000+ distributor inputs that helped cut partner response times by ~50%. This project turns that methodology into a reusable, public tool with fully synthetic data.
 
-## What it does (planned)
+## What it does
 
 | Module | What it solves | Status |
 |---|---|---|
-| **Dealer scoring engine** | Multi-criteria partner selection — financial health, infra, coverage, track record → weighted ranking | ⏳ |
-| **Coverage model** | Geographic demand mapping vs network footprint; white-space identification | ⏳ |
-| **Capacity planner** | Distributor throughput vs regional demand; where the network saturates first | ⏳ |
+| **Dealer scoring engine** | Multi-criteria partner selection — financial health, infra, OTD, track record, responsiveness → weighted 0–1 score + ranking | ✅ |
+| **Coverage model** | Regional demand vs network footprint; saturation status per region | ✅ |
+| **Capacity planner** | Greedy market-entry selection: pick top-scoring partners per region until demand × buffer is covered | ✅ |
 | **Response-time simulator** | Service-level modeling — how network shape drives fulfillment/response SLAs | ⏳ |
 | **Scenario board** | Entry strategies compared: depth-first vs breadth-first expansion | ⏳ |
 
+Run it: `pip install -r requirements.txt && python demo_network_plan.py` (writes shortlist CSV + coverage chart to `outputs/`).
+
 ## Tech
 
-- Python 3, pandas, geopandas, numpy, matplotlib/folium
+- Python 3, pandas, numpy, matplotlib (geopandas/folium maps planned)
 - Synthetic dataset only (generated, no real client or market data)
 
 ## Roadmap
 
-- [ ] Repo scaffold + README
-- [ ] Synthetic distributor dataset generator
-- [ ] Scoring engine + weighted-criteria config
-- [ ] Coverage maps (demand vs footprint)
-- [ ] Capacity saturation analysis
+- [x] Repo scaffold + README
+- [x] Synthetic distributor dataset generator
+- [x] Scoring engine + weighted-criteria config
+- [x] Top-N dealer shortlist
+- [x] Full-network saturation analysis
+- [x] Greedy market-entry network plan (125% capacity buffer)
+- [ ] Geospatial coverage maps
 - [ ] Response-time simulation notebook
 - [ ] Scenario comparison + final writeup
 
